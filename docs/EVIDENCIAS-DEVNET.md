@@ -28,7 +28,7 @@ Usar datos ficticios, sin nombres ni información real de clientes.
 | Crear registro `Viajes Demo Diego` | Se crea registro | **Creado correctamente** en Solana Playground (captura 22/11/2026) | Firma mostrada por Playground; pendiente copiar enlace exacto de Explorer | Captura proporcionada en conversación |
 | Crear cliente #1 | Se agrega al registro | **Cliente Prueba**, ID 1, creado correctamente en Solana Playground (captura del 22/11/2026) | Firma mostrada en Playground; enlace exacto pendiente de registrar | Captura proporcionada en conversación |
 | Registrar SKU `VJ001`, monto 150 | Se crea venta | **Venta creada correctamente** para el cliente #1 en Playground (captura 22/11/2026) | Firma mostrada en Playground; enlace a Explorer pendiente | Captura proporcionada en conversación |
-| Cambiar monto a 200 | Se actualiza la misma venta | Pendiente | — | — |
+| Cambiar monto a 200 | Se actualiza la misma venta | **Confirmado en Playground:** importe anterior 150, nuevo 200, SKU VJ001, cliente #1 (captura 22/11/2026) | Firma mostrada en la terminal de Playground; enlace de Explorer pendiente | Captura de conversación |
 | Baja de cliente con venta activa | Rechazo `ClienteConVentas` | Pendiente | — | — |
 | Devolver `VJ001` | Venta cerrada, compras 0 | Pendiente | — | — |
 | Baja de cliente sin ventas | Cuenta cerrada, sin referencia | Pendiente | — | — |
