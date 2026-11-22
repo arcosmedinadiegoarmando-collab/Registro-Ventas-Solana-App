@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "name": "registro",
   "metadata": {
-    "address": "38oTMyvUTmqkBQeMiuok5F2mPjp9dVadWdBeQTDNmTUY"
+    "address": "H5MRzA9kNFVDL7Fwdmaf5iHyXauhZBYgTqisHufYWuTe"
   },
   "instructions": [
     {
@@ -146,6 +146,32 @@
       ]
     },
     {
+      "name": "eliminarCliente",
+      "accounts": [
+        {
+          "name": "owner",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "registro",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "cliente",
+          "isMut": true,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "idCliente",
+          "type": "u16"
+        }
+      ]
+    },
+    {
       "name": "cambiarMonto",
       "accounts": [
         {
@@ -269,6 +295,21 @@
       "code": 6001,
       "name": "NoSKU",
       "msg": "Error, la venta no esta en el historial del cliente"
+    },
+    {
+      "code": 6002,
+      "name": "MontoInvalido",
+      "msg": "El monto debe ser mayor que cero"
+    },
+    {
+      "code": 6003,
+      "name": "ClienteConVentas",
+      "msg": "No puedes eliminar un cliente que mantiene ventas activas"
+    },
+    {
+      "code": 6004,
+      "name": "ClienteNoRegistrado",
+      "msg": "El cliente no forma parte del registro"
     }
   ]
 }
