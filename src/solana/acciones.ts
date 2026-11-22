@@ -1,8 +1,9 @@
-import { address, createNoopSigner, type Address } from '@solana/kit';
+import { AccountRole, address, createNoopSigner, type Address } from '@solana/kit';
 import type { Connection } from '@solana/web3.js';
 import {
   getCrearRegistroInstruction, getCrearClienteInstruction,
   getRegistrarVentaInstruction, getCambiarMontoInstruction, getHacerDevolucionInstruction,
+  REGISTRO_PROGRAM_ADDRESS,
 } from '../../clients/js/src/generated';
 import { cadena, pdaCliente, pdaRegistro } from './pdas';
 import { siguienteId } from './lecturas';
@@ -75,4 +76,35 @@ export async function hacerDevolucion(wallet: WalletFirma, connection: Connectio
   const { registro, cliente, venta } = cadena(nombreNegocio, owner.address, idCliente, sku);
   const ix = getHacerDevolucionInstruction({ owner, registro, cliente, venta, idCliente, sku });
   return enviar(ix, wallet, connection, opciones);
+}
+
+
+// Day 5: instruccion adicional del contrato Advanced.
+// Se codifica explicitamente porque el cliente de referencia todavia no trae
+// eliminarCliente. Al importar el IDL del despliegue se regenerara con Codama.
+export function instruccionEliminarCliente(owner: Address, registro: Address, cliente: Address, idCliente: number) {
+  const id = idValido(idCliente);
+  // Anchor: sha256("global:eliminar_cliente").slice(0, 8), seguido del u16 LE.
+  const data = new Uint8Array([205, 132, 251, 133, 247, 51, 204, 55, id & 255, id >> 8]);
+  return {
+    programAddress: REGISTRO_PROGRAM_ADDRESS,
+    accounts: [
+      { address: owner, role: AccountRole.WRITABLE_SIGNER },
+      { address: registro, role: AccountRole.WRITABLE },
+      { address: cliente, role: AccountRole.WRITABLE },
+    ],
+    data,
+  };
+}
+
+export async function eliminarCliente(
+  wallet: WalletFirma, connection: Connection, nombreNegocio: string,
+  idCliente: number, opciones?: OpcionesEnvio,
+): Promise<string> {
+  nombreNegocio = negocioValido(nombreNegocio);
+  idCliente = idValido(idCliente);
+  const owner = firmante(wallet);
+  const registro = pdaRegistro(nombreNegocio, owner.address);
+  const cliente = pdaCliente(registro, idCliente);
+  return enviar(instruccionEliminarCliente(owner.address, registro, cliente, idCliente), wallet, connection, opciones);
 }
