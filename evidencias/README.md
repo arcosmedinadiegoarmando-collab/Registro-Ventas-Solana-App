@@ -20,8 +20,9 @@ Descargar el paquete de evidencias de la conversación, descomprimirlo y **subir
 | `10_venta_valida_VAL01.png` | Venta válida para segundo test |
 | `11_cambio_cero_rechazado.png` | `MontoInvalido` (6002) al modificar |
 | `12_no_owner_rechazado.png` | `NoOwner` (6000) |
+| `13_frontend_consulta_devnet.png` | Frontend lee el registro real, cliente #2 y venta de 150 unidades en Devnet |
 
-**Captura complementaria recomendada:** una pantalla del frontend mostrando `Viajes Demo Diego`, cliente `Cliente Validacion` y SKU `VAL01` por 150 unidades.
+El paquete de evidencias de la conversación incluye también la captura complementaria del frontend indicada como número 13.
 
 ## Estado
 
