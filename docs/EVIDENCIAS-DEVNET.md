@@ -11,21 +11,29 @@
 - [x] Rust compilado en Solana Playground (captura del 22/11/2026).
 - [x] Programa desplegado en Devnet (captura del 22/11/2026).
 - [x] IDL exportado e integrado al repositorio, con 6 instrucciones.
-- [x] Cliente Codama regenerado en Codespaces a partir del IDL desplegado (pendiente subir cambios generados a GitHub).
+- [x] Cliente Codama regenerado en Codespaces y subido a GitHub mediante commit y push (captura del 22/11/2026).
 - [x] `npm run verificar` aprobado en Codespaces después de importar el IDL (captura del 22/11/2026).
 - [x] Aplicación abierta en Codespaces, puerto 5173 (captura del 22/11/2026).
 - [x] Wallet Phantom conectada a la aplicación Devnet; **Phantom bloqueó la solicitud de firma del dominio temporal**, por lo que las pruebas de escritura se realizaron con wallet de Playground.
 - [x] Pruebas reales de negocio, validación de montos y rechazo de autoridad comprobadas en Playground (capturas del 22/11/2026). Pendiente subir capturas y enlazar firmas exactas en Explorer.
-- [ ] Incorporar cliente Codama regenerado desde Codespaces mediante commit y push; subir capturas y enlaces de Explorer para finalizar la documentación.
+- [x] Cliente Codama regenerado, IDL, configuración y código subidos a GitHub en la rama `certificacion-advanced-22nov`.
+- [x] Lectura del registro real comprobada en el frontend: negocio `Viajes Demo Diego`, cliente #2 y venta `VAL01` por 150 unidades.
+- [ ] Subir las capturas y completar enlaces de transacciones en Explorer en el propio repositorio.
 - [ ] Formulario de certificación enviado y confirmación guardada.
 
 ## Alta adicional para las pruebas de validación
 
-El 22/11/2026 se creó en Solana Playground **Cliente Validacion**, con **ID 2** en el registro `Viajes Demo Diego`. La terminal mostró `CLIENTE CREADO CORRECTAMENTE` y su firma; captura compartida en la conversación. Este cliente se utilizará para intentar registrar una venta de monto cero y comprobar la validación del contrato Rust (`MontoInvalido`, 6002). La prueba de rechazo aún está pendiente.
+El 22/11/2026 se creó en Solana Playground **Cliente Validacion**, con **ID 2** en el registro `Viajes Demo Diego`. La terminal mostró `CLIENTE CREADO CORRECTAMENTE` y su firma; captura compartida en la conversación. Este cliente se utilizó para intentar registrar una venta de monto cero. El contrato Rust rechazó la operación con `MontoInvalido` (6002), como consta en la tabla de resultados.
 
 ### Venta válida adicional para verificar el cambio de monto
 
-El 22 de noviembre de 2026 se registró correctamente la venta `VAL01` (150 unidades) para el cliente `Cliente Validacion` (ID 2) desde Solana Playground en Devnet. La captura muestra `VENTA VALIDA REGISTRADA` y una firma de transacción. Esta cuenta se utilizará para probar el rechazo de `cambiar_monto(..., 0)`. El rechazo aún está pendiente.
+El 22 de noviembre de 2026 se registró correctamente la venta `VAL01` (150 unidades) para el cliente `Cliente Validacion` (ID 2) desde Solana Playground en Devnet. La captura muestra `VENTA VALIDA REGISTRADA` y una firma de transacción. Esta cuenta se utilizó para probar `cambiar_monto(..., 0)`. El contrato rechazó el cambio con `MontoInvalido` (6002) y el valor permaneció en 150 unidades.
+
+## Lectura desde el frontend verificada
+
+El 22 de noviembre de 2026 se comprobó en la página de React servida por GitHub Codespaces (puerto 5173) que la consulta de registro en **Devnet** muestra `Viajes Demo Diego` para la dirección pública de autoridad de Playground, el cliente **Cliente Validacion** (ID 2) y la venta `VAL01` con monto **150 unidades**. La captura fue aportada durante la sesión.
+
+La wallet Phantom del navegador permanecía conectada a otra dirección y por eso la aplicación mostraba *modo lectura de otra autoridad*; esto es correcto. **No se probó que Phantom firmara transacciones desde la URL de Codespaces:** la extensión bloqueó las solicitudes; las escrituras y validaciones de contrato se probaron en Solana Playground.
 
 ## Pruebas funcionales
 
@@ -59,7 +67,7 @@ Puedes crear una carpeta `evidencias/` en el repositorio para subir capturas sin
 - [Explorer Devnet](https://explorer.solana.com/?cluster=devnet)
 - [Formulario de entrega Advanced](https://airtable.com/appqcPkgPHDB6fyz7/pagtEQg4DjDOKDHIL/form)
 
-**Estado:** este archivo es una plantilla. Ninguna fila en «Pruebas funcionales» acredita una transacción hasta registrar el resultado observado y evidencia correspondiente.
+**Estado:** las pruebas de negocio y seguridad indicadas como aprobadas se ejecutaron durante la sesión y aparecen en capturas compartidas en el chat. Queda pendiente subir las imágenes al repositorio y completar los enlaces de Explorer; una captura del frontend confirma la consulta de datos de Devnet. Las operaciones rechazadas durante simulación no producen necesariamente una firma de transacción exitosa.
 
 ## Nota de la primera prueba real
 
