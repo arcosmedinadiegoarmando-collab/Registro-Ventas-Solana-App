@@ -1,14 +1,15 @@
-import { AccountRole, address, createNoopSigner, type Address } from '@solana/kit';
+import { address, createNoopSigner, type Address } from '@solana/kit';
 import type { Connection } from '@solana/web3.js';
 import {
   getCrearRegistroInstruction, getCrearClienteInstruction,
   getRegistrarVentaInstruction, getCambiarMontoInstruction, getHacerDevolucionInstruction,
-  REGISTRO_PROGRAM_ADDRESS,
+
 } from '../../clients/js/src/generated';
 import { cadena, pdaCliente, pdaRegistro } from './pdas';
 import { siguienteId } from './lecturas';
 import { enviar, type WalletFirma, type OpcionesEnvio } from './tx';
 import { comprobarConfiguracion } from './seguridad';
+import { instruccionEliminarCliente } from './instrucciones-eliminar';
 import { negocioValido, nombreValido, skuValido, descripcionValida, idValido, montoValido } from './validaciones';
 
 export function direccionDe(wallet: Pick<WalletFirma, 'publicKey'>): Address {
@@ -78,24 +79,6 @@ export async function hacerDevolucion(wallet: WalletFirma, connection: Connectio
   return enviar(ix, wallet, connection, opciones);
 }
 
-
-// Day 5: instruccion adicional del contrato Advanced.
-// Se codifica explicitamente porque el cliente de referencia todavia no trae
-// eliminarCliente. Al importar el IDL del despliegue se regenerara con Codama.
-export function instruccionEliminarCliente(owner: Address, registro: Address, cliente: Address, idCliente: number) {
-  const id = idValido(idCliente);
-  // Anchor: sha256("global:eliminar_cliente").slice(0, 8), seguido del u16 LE.
-  const data = new Uint8Array([205, 132, 251, 133, 247, 51, 204, 55, id & 255, id >> 8]);
-  return {
-    programAddress: REGISTRO_PROGRAM_ADDRESS,
-    accounts: [
-      { address: owner, role: AccountRole.WRITABLE_SIGNER },
-      { address: registro, role: AccountRole.WRITABLE },
-      { address: cliente, role: AccountRole.WRITABLE },
-    ],
-    data,
-  };
-}
 
 export async function eliminarCliente(
   wallet: WalletFirma, connection: Connection, nombreNegocio: string,
