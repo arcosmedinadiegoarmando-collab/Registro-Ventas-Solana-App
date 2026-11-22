@@ -31,19 +31,19 @@ Los importes son enteros ficticios; este sistema **no recibe ni devuelve dinero 
 
 1. Abrir <https://beta.solpg.io/> y entrar con la cuenta de práctica. Seleccionar **Devnet**.
 2. Importar el proyecto Rust de `programa/src/lib.rs` de **esta rama**, no el código de WayLearn sin modificar.
-3. En Playground, revisar el `declare_id!("")` de la plantilla y configurar el **Program ID real** siguiendo las instrucciones de Playground. No inventar ni copiar el Program ID del IDL de referencia.
-4. Compilar con Build. Corregir cualquier error **antes** de desplegar.
-5. Desplegar en Devnet usando SOL de prueba. Copiar el **Program ID público**.
-6. Exportar el **IDL generado por ese mismo build**. Confirmar que incluye `eliminarCliente`, `MontoInvalido` y `ClienteConVentas`.
-7. En Codespaces, guardar temporalmente el IDL exportado, por ejemplo `tmp-idl/registro.json`, y ejecutar:
+3. El programa ya fue desplegado en Devnet con Program ID `H5MRzA9kNFVDL7Fwdmaf5iHyXauhZBYgTqisHufYWuTe`. Este identificador público está fijado en `programa/src/lib.rs`; conservarlo al reproducir la compilación.
+4. Compilación y despliegue realizados en Solana Playground el 22 de noviembre de 2026 (captura en conversación). Las pruebas funcionales todavía no se han comprobado.
+5. El IDL que exportaste ya se incorporó a `idl.json` con el identificador público del programa.
+6. En el Codespace existente, sobre la rama `certificacion-advanced-22nov`, ejecutar:
 
 ```bash
-npm run configurar:idl -- ./tmp-idl/registro.json
+git pull --ff-only
+npm run configurar:idl -- ./idl.json
 npm run verificar
 npm run dev
 ```
 
-Si el IDL no incluye la dirección, usar `--program-id TU_PROGRAM_ID` en el comando de importación. Importar el IDL **regenera el cliente Codama** y desbloquea las operaciones del programa. Reiniciar Vite tras importar.
+El IDL del repositorio ahora incluye `metadata.address`, así que no hace falta pasar `--program-id`. Importar el IDL **regenera el cliente Codama** y desbloquea las operaciones del programa. Reiniciar Vite tras importar. En la pestaña **Puertos**, abrir el 5173 en el navegador con una wallet Solana compatible configurada en Devnet.
 
 > Al regenerar Codama, no editar manualmente `clients/js/src/generated`; la función `eliminarCliente` local de `acciones.ts` sigue siendo válida si los datos y las cuentas del IDL generado coinciden con lo desplegado.
 
@@ -77,4 +77,4 @@ Completar el README principal con tu Program ID, enlaces y pruebas verificadas. 
 - Formulario Advanced: <https://airtable.com/appqcPkgPHDB6fyz7/pagtEQg4DjDOKDHIL/form>
 - Fecha de corte recibida por correo: **22 de noviembre de 2026, 11:59 p. m. Ciudad de México**.
 
-**Estado actual:** el código se preparó en GitHub, pero no se ha compilado en Solana Playground, no se ha desplegado ni se han registrado transacciones comprobadas. Ejecutar los pasos y sustituir este estado por evidencias reales antes de presentar.
+**Estado actual (22/11/2026):** el código TypeScript pasó verificación y build en Codespaces; el Rust se compiló y desplegó en Playground Devnet. El IDL se incorporó a GitHub, pero **aún es necesario regenerar el cliente en Codespaces, volver a verificar, probar transacciones y registrar evidencias**. No afirmar que estas pruebas ya pasaron.
