@@ -15,8 +15,8 @@
 - [x] `npm run verificar` aprobado en Codespaces después de importar el IDL (captura del 22/11/2026).
 - [x] Aplicación abierta en Codespaces, puerto 5173 (captura del 22/11/2026).
 - [x] Wallet Phantom conectada a la aplicación Devnet; **Phantom bloqueó la solicitud de firma del dominio temporal**, por lo que las pruebas de escritura se realizaron con wallet de Playground.
-- [ ] Pruebas reales de negocio y validación de montos comprobadas en Playground; pendiente rechazo de dueño incorrecto y subir capturas/firmas enlazadas.
-- [ ] Repositorio actualizado con pruebas y documentación final.
+- [x] Pruebas reales de negocio, validación de montos y rechazo de autoridad comprobadas en Playground (capturas del 22/11/2026). Pendiente subir capturas y enlazar firmas exactas en Explorer.
+- [ ] Incorporar cliente Codama regenerado desde Codespaces mediante commit y push; subir capturas y enlaces de Explorer para finalizar la documentación.
 - [ ] Formulario de certificación enviado y confirmación guardada.
 
 ## Alta adicional para las pruebas de validación
@@ -42,7 +42,7 @@ Usar datos ficticios, sin nombres ni información real de clientes.
 | Baja de cliente sin ventas | Cuenta cerrada, sin referencia | **Aprobada**: Cliente Prueba ID 1 cerrado, consulta posterior `finalized` muestra cuenta cerrada y `sigueListado=false` (captura 22/11/2026) | Firma visible en la terminal de Playground; enlace Explorer pendiente | Captura proporcionada en conversación |
 | Intentar venta por 0 desde cliente de prueba | Rechazo `MontoInvalido` en Rust | **Aprobada:** Cliente Validacion ID 2; SKU `VAL00`, monto 0 rechazado por programa Rust, `MontoInvalido` código **6002** y cuenta de venta **no creada** (captura 22/11/2026). | Error Anchor registrado en logs de Playground; no se generó firma de operación exitosa | Captura proporcionada en conversación |
 | Intentar cambiar monto a 0 desde cliente de prueba | Rechazo `MontoInvalido` en Rust | **Aprobada:** `VAL01` del cliente 2 se mantuvo en 150 tras intentar cambiar a 0; Anchor rechazó con **MontoInvalido (6002)**, confirmado con lectura posterior (captura 22/11/2026) | Logs de Playground: transacción rechazada durante la simulación, sin firma de éxito | Captura proporcionada en conversación |
-| Firmar con dueño incorrecto | Rechazo de autoridad | Pendiente | — | — |
+| Firmar con dueño incorrecto | Rechazo de autoridad | **Aprobada:** cambio de monto `VAL01` (150 → 151) con wallet ajena rechazado; Anchor `NoOwner` código **6000** y monto final 150 (captura del 22/11/2026). | Logs de Playground; la simulación rechazada no generó transacción de éxito | Captura proporcionada en conversación |
 
 **Aclaración:** la interfaz valida importes positivos antes de enviar la transacción. La prueba de la validación **on-chain** debe realizarse con un cliente que envíe monto cero, como Solana Playground. Para fallas de simulación pueden existir logs sin una firma confirmada.
 
