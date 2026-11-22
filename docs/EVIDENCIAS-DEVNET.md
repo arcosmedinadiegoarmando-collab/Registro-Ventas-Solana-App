@@ -15,7 +15,7 @@
 - [ ] `npm run verificar` aprobado después de importar el IDL.
 - [ ] Aplicación abierta en Codespaces, puerto 5173.
 - [ ] Wallet de navegador conectada a Devnet.
-- [ ] Pruebas reales con transacciones y capturas.
+- [ ] Pruebas reales con transacciones y capturas (en proceso: creación de registro verificada en Playground).
 - [ ] Repositorio actualizado con pruebas y documentación final.
 - [ ] Formulario de certificación enviado y confirmación guardada.
 
@@ -25,7 +25,7 @@ Usar datos ficticios, sin nombres ni información real de clientes.
 
 | Caso | Resultado esperado | Resultado observado | Firma / logs | Evidencia |
 |---|---|---|---|---|
-| Crear registro `Viajes Demo Diego` | Se crea registro | Pendiente | — | — |
+| Crear registro `Viajes Demo Diego` | Se crea registro | **Creado correctamente** en Solana Playground (captura 22/11/2026) | Firma mostrada por Playground; pendiente copiar enlace exacto de Explorer | Captura proporcionada en conversación |
 | Crear cliente #1 | Se agrega al registro | Pendiente | — | — |
 | Registrar SKU `VJ001`, monto 150 | Se crea venta | Pendiente | — | — |
 | Cambiar monto a 200 | Se actualiza la misma venta | Pendiente | — | — |
@@ -52,3 +52,7 @@ Puedes crear una carpeta `evidencias/` en el repositorio para subir capturas sin
 - [Formulario de entrega Advanced](https://airtable.com/appqcPkgPHDB6fyz7/pagtEQg4DjDOKDHIL/form)
 
 **Estado:** este archivo es una plantilla. Ninguna fila en «Pruebas funcionales» acredita una transacción hasta registrar el resultado observado y evidencia correspondiente.
+
+## Nota de la primera prueba real
+
+El 22/11/2026, desde **Solana Playground** y la wallet del entorno, la terminal mostró `Registro creado correctamente` junto con la firma de la transacción. La captura evidencia éxito del método RPC. **Pendiente:** copiar la firma exacta desde Playground, verificarla en Explorer Devnet y agregar el enlace en esta tabla. No confundir esta operación con los intentos que Phantom bloqueó desde el dominio temporal de Codespaces.
