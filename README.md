@@ -1,6 +1,6 @@
 # Registro de Ventas · App
 
-![Registro de Ventas · App — Solana, TypeScript y React](./images/banner-app.png)
+> **Proyecto de certificacion Advanced (Diego Arcos):** esta rama incluye la baja segura de clientes, validacion de montos en el programa Rust y una [guia paso a paso para desplegar, probar y entregar](./docs/CERTIFICACION-ADVANCED-DIEGO.md). Los cambios aun requieren pruebas en Devnet. No ejecutes `npm run clase:resuelto` despues de trabajar en esta rama: sobrescribe las acciones de la aplicacion.\n\n![Registro de Ventas · App — Solana, TypeScript y React](./images/banner-app.png)
 
 Frontend educativo desarrollado con **TypeScript y React** para interactuar con el programa [Registro de Ventas con PDAs](https://github.com/WayLearnLatam/Registro-Ventas-Solana-PDA) en **Solana Devnet**.
 
