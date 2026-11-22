@@ -1,5 +1,16 @@
 # Registro de Ventas · App
 
+> **Solana Engineering Track: Advanced — Proyecto final de Diego Arcos**  
+> **Ruta:** proyecto guiado de WayLearn, ampliado con una mejora funcional implementada en Rust.  
+> **Programa Devnet:** `H5MRzA9kNFVDL7Fwdmaf5iHyXauhZBYgTqisHufYWuTe`  
+> [Ver programa en Solana Explorer](https://explorer.solana.com/address/H5MRzA9kNFVDL7Fwdmaf5iHyXauhZBYgTqisHufYWuTe?cluster=devnet)
+>
+> **Aporte propio comprobado:** rechazo on-chain de importes iguales a cero tanto al crear ventas como al modificar el importe (`MontoInvalido`, error 6002). La baja segura del cliente es parte de la base del día 5; se documentó y probó junto con los demás flujos.
+>
+> **Evidencia:** [Bitácora de pruebas en Devnet](./docs/EVIDENCIAS-DEVNET.md) · [Guía de implementación, reproducción y entrega](./docs/CERTIFICACION-ADVANCED-DIEGO.md).
+>
+> **Nota de ejecución:** el frontend pasó `npm run verificar` en Codespaces con el IDL importado; las transacciones reales y los rechazos de autoridad/monto se comprobaron en Solana Playground. Phantom bloqueó las solicitudes de firma del dominio temporal `*.app.github.dev`; las operaciones de escritura no se presentan como verificadas desde ese dominio. No se debe desactivar la protección de la wallet.
+
 ![Registro de Ventas · App — Solana, TypeScript y React](./images/banner-app.png)
 
 Frontend educativo desarrollado con **TypeScript y React** para interactuar con el programa [Registro de Ventas con PDAs](https://github.com/WayLearnLatam/Registro-Ventas-Solana-PDA) en **Solana Devnet**.

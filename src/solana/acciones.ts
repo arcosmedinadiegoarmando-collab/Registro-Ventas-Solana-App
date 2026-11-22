@@ -3,11 +3,13 @@ import type { Connection } from '@solana/web3.js';
 import {
   getCrearRegistroInstruction, getCrearClienteInstruction,
   getRegistrarVentaInstruction, getCambiarMontoInstruction, getHacerDevolucionInstruction,
+
 } from '../../clients/js/src/generated';
 import { cadena, pdaCliente, pdaRegistro } from './pdas';
 import { siguienteId } from './lecturas';
 import { enviar, type WalletFirma, type OpcionesEnvio } from './tx';
 import { comprobarConfiguracion } from './seguridad';
+import { instruccionEliminarCliente } from './instrucciones-eliminar';
 import { negocioValido, nombreValido, skuValido, descripcionValida, idValido, montoValido } from './validaciones';
 
 export function direccionDe(wallet: Pick<WalletFirma, 'publicKey'>): Address {
@@ -75,4 +77,17 @@ export async function hacerDevolucion(wallet: WalletFirma, connection: Connectio
   const { registro, cliente, venta } = cadena(nombreNegocio, owner.address, idCliente, sku);
   const ix = getHacerDevolucionInstruction({ owner, registro, cliente, venta, idCliente, sku });
   return enviar(ix, wallet, connection, opciones);
+}
+
+
+export async function eliminarCliente(
+  wallet: WalletFirma, connection: Connection, nombreNegocio: string,
+  idCliente: number, opciones?: OpcionesEnvio,
+): Promise<string> {
+  nombreNegocio = negocioValido(nombreNegocio);
+  idCliente = idValido(idCliente);
+  const owner = firmante(wallet);
+  const registro = pdaRegistro(nombreNegocio, owner.address);
+  const cliente = pdaCliente(registro, idCliente);
+  return enviar(instruccionEliminarCliente(owner.address, registro, cliente, idCliente), wallet, connection, opciones);
 }

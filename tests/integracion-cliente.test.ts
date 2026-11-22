@@ -11,6 +11,7 @@ import { s } from '../src/solana/seeds';
 import { aWeb3, confirmarEnvio, ErrorTransaccion, ErrorConfirmacionPendiente, traducir } from '../src/solana/tx';
 import { comprobarDevnet, DEVNET_GENESIS } from '../src/solana/seguridad';
 import { montoValido, skuValido, nombreValido, idValido } from '../src/solana/validaciones';
+import { instruccionEliminarCliente } from '../src/solana/instrucciones-eliminar';
 import idl from '../idl.json';
 import { validarIdl, prepararIdl, REFERENCIA_ID } from '../scripts/contrato-idl.mjs';
 
@@ -108,4 +109,28 @@ test('se valida el contrato IDL y la normalizacion no cambia el orden ni tipos',
   esquema!.fields.reverse();
   assert.throws(() => validarIdl(otraCuenta), /campos de la cuenta/);
   assert.throws(() => validarIdl(copia, new PublicKey(new Uint8Array(32).fill(9)).toBase58()), /no coinciden/);
+});
+
+
+test('la baja de cliente usa el discriminador Anchor y la autoridad firmante', () => {
+  const registro = pdaRegistro('Cafe', owner);
+  const cliente = pdaCliente(registro, 256);
+  const instruccion = instruccionEliminarCliente(owner, registro, cliente, 256);
+  const esperado = createHash('sha256').update('global:eliminar_cliente').digest().subarray(0, 8);
+  assert.deepEqual([...instruccion.data.subarray(0, 8)], [...esperado]);
+  assert.deepEqual([...instruccion.data.subarray(8)], [0, 1]);
+  assert.equal(instruccion.programAddress, REGISTRO_PROGRAM_ADDRESS);
+  const tx = aWeb3(instruccion);
+  assert.deepEqual(tx.keys.map(cuenta => [cuenta.isSigner, cuenta.isWritable]),
+    [[true, true], [false, true], [false, true]]);
+  assert.throws(() => instruccionEliminarCliente(owner, registro, cliente, 0));
+});
+
+test('el programa exige montos positivos y prohibe bajas con ventas', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const rust = await readFile(new URL('../programa/src/lib.rs', import.meta.url), 'utf8');
+  assert.match(rust, /require!\(monto > 0, Errores::MontoInvalido\)/);
+  assert.match(rust, /require!\(nuevo_monto > 0, Errores::MontoInvalido\)/);
+  assert.match(rust, /context\.accounts\.cliente\.historial\.is_empty\(\)/);
+  assert.match(rust, /close = owner/);
 });
