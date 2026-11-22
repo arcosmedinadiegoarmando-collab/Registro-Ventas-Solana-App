@@ -11,11 +11,11 @@
 - [x] Rust compilado en Solana Playground (captura del 22/11/2026).
 - [x] Programa desplegado en Devnet (captura del 22/11/2026).
 - [x] IDL exportado e integrado al repositorio, con 6 instrucciones.
-- [ ] Cliente Codama regenerado a partir del IDL desplegado.
-- [ ] `npm run verificar` aprobado después de importar el IDL.
-- [ ] Aplicación abierta en Codespaces, puerto 5173.
-- [ ] Wallet de navegador conectada a Devnet.
-- [ ] Pruebas reales con transacciones y capturas (en proceso: creación de registro verificada en Playground).
+- [x] Cliente Codama regenerado en Codespaces a partir del IDL desplegado (pendiente subir cambios generados a GitHub).
+- [x] `npm run verificar` aprobado en Codespaces después de importar el IDL (captura del 22/11/2026).
+- [x] Aplicación abierta en Codespaces, puerto 5173 (captura del 22/11/2026).
+- [x] Wallet Phantom conectada a la aplicación Devnet; **Phantom bloqueó la solicitud de firma del dominio temporal**, por lo que las pruebas de escritura se realizaron con wallet de Playground.
+- [ ] Pruebas reales de negocio y validación de montos comprobadas en Playground; pendiente rechazo de dueño incorrecto y subir capturas/firmas enlazadas.
 - [ ] Repositorio actualizado con pruebas y documentación final.
 - [ ] Formulario de certificación enviado y confirmación guardada.
 
