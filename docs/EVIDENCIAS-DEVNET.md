@@ -30,7 +30,7 @@ Usar datos ficticios, sin nombres ni información real de clientes.
 | Registrar SKU `VJ001`, monto 150 | Se crea venta | **Venta creada correctamente** para el cliente #1 en Playground (captura 22/11/2026) | Firma mostrada en Playground; enlace a Explorer pendiente | Captura proporcionada en conversación |
 | Cambiar monto a 200 | Se actualiza la misma venta | **Confirmado en Playground:** importe anterior 150, nuevo 200, SKU VJ001, cliente #1 (captura 22/11/2026) | Firma mostrada en la terminal de Playground; enlace de Explorer pendiente | Captura de conversación |
 | Baja de cliente con venta activa | Rechazo `ClienteConVentas` | **Aprobada**: Cliente Prueba, ID 1, 1 venta activa, 1 historial; rechazo con error Anchor **6003** en Playground (22/11/2026) | Logs de ejecución; la transacción rechazada puede no producir firma | Captura de conversación |
-| Devolver `VJ001` | Venta cerrada, compras 0 | Pendiente | — | — |
+| Devolver `VJ001` | Venta cerrada, compras 0 | **Aprobada:** lectura `finalized` muestra compras 0, historial vacío y cuenta VJ001 cerrada; captura Playground del 22/11/2026 | Firma de devolución visible en la sesión; pendiente enlazar Explorer | Captura proporcionada en conversación |
 | Baja de cliente sin ventas | Cuenta cerrada, sin referencia | Pendiente | — | — |
 | Intentar venta por 0 desde cliente de prueba | Rechazo `MontoInvalido` en Rust | Pendiente | — | — |
 | Intentar cambiar monto a 0 desde cliente de prueba | Rechazo `MontoInvalido` en Rust | Pendiente | — | — |
