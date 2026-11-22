@@ -13,7 +13,8 @@ Los importes son enteros ficticios; este sistema **no recibe ni devuelve dinero 
 ## Código modificado
 
 - `programa/src/lib.rs`: instrucción `eliminar_cliente`, contexto `EliminarCliente` y errores `MontoInvalido`, `ClienteConVentas`, `ClienteNoRegistrado`.
-- `src/solana/acciones.ts`: construye la instrucción de baja con el discriminador de Anchor y el ID del cliente como `u16` little-endian. Es temporalmente manual porque el IDL de referencia anterior no incorpora la instrucción; al desplegar, se debe exportar **el IDL nuevo**.
+- `src/solana/instrucciones-eliminar.ts`: construye la instrucción de baja con el discriminador de Anchor y el ID del cliente como `u16` little-endian, independiente de Vite para ejecutar sus pruebas en Node.
+- `src/solana/acciones.ts`: conecta esa instrucción con la wallet y el envío de transacciones. La construcción manual es temporal porque el IDL de referencia anterior no incorpora esta operación; al desplegar, se debe exportar **el IDL nuevo**.
 - `src/components/Registro.tsx`: pestaña para dar de baja clientes y explicar la condición.
 - `tests/integracion-cliente.test.ts`: comprueba discriminador, roles y presencia de reglas; no sustituye pruebas reales en Devnet.
 
