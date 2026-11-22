@@ -23,6 +23,10 @@
 
 El 22/11/2026 se creó en Solana Playground **Cliente Validacion**, con **ID 2** en el registro `Viajes Demo Diego`. La terminal mostró `CLIENTE CREADO CORRECTAMENTE` y su firma; captura compartida en la conversación. Este cliente se utilizará para intentar registrar una venta de monto cero y comprobar la validación del contrato Rust (`MontoInvalido`, 6002). La prueba de rechazo aún está pendiente.
 
+### Venta válida adicional para verificar el cambio de monto
+
+El 22 de noviembre de 2026 se registró correctamente la venta `VAL01` (150 unidades) para el cliente `Cliente Validacion` (ID 2) desde Solana Playground en Devnet. La captura muestra `VENTA VALIDA REGISTRADA` y una firma de transacción. Esta cuenta se utilizará para probar el rechazo de `cambiar_monto(..., 0)`. El rechazo aún está pendiente.
+
 ## Pruebas funcionales
 
 Usar datos ficticios, sin nombres ni información real de clientes.
