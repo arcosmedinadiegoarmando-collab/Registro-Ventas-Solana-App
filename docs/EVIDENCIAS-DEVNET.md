@@ -36,7 +36,7 @@ Usar datos ficticios, sin nombres ni información real de clientes.
 | Baja de cliente con venta activa | Rechazo `ClienteConVentas` | **Aprobada**: Cliente Prueba, ID 1, 1 venta activa, 1 historial; rechazo con error Anchor **6003** en Playground (22/11/2026) | Logs de ejecución; la transacción rechazada puede no producir firma | Captura de conversación |
 | Devolver `VJ001` | Venta cerrada, compras 0 | **Aprobada:** lectura `finalized` muestra compras 0, historial vacío y cuenta VJ001 cerrada; captura Playground del 22/11/2026 | Firma de devolución visible en la sesión; pendiente enlazar Explorer | Captura proporcionada en conversación |
 | Baja de cliente sin ventas | Cuenta cerrada, sin referencia | **Aprobada**: Cliente Prueba ID 1 cerrado, consulta posterior `finalized` muestra cuenta cerrada y `sigueListado=false` (captura 22/11/2026) | Firma visible en la terminal de Playground; enlace Explorer pendiente | Captura proporcionada en conversación |
-| Intentar venta por 0 desde cliente de prueba | Rechazo `MontoInvalido` en Rust | Pendiente | — | — |
+| Intentar venta por 0 desde cliente de prueba | Rechazo `MontoInvalido` en Rust | **Aprobada:** Cliente Validacion ID 2; SKU `VAL00`, monto 0 rechazado por programa Rust, `MontoInvalido` código **6002** y cuenta de venta **no creada** (captura 22/11/2026). | Error Anchor registrado en logs de Playground; no se generó firma de operación exitosa | Captura proporcionada en conversación |
 | Intentar cambiar monto a 0 desde cliente de prueba | Rechazo `MontoInvalido` en Rust | Pendiente | — | — |
 | Firmar con dueño incorrecto | Rechazo de autoridad | Pendiente | — | — |
 
