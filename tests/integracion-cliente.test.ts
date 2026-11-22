@@ -11,7 +11,7 @@ import { s } from '../src/solana/seeds';
 import { aWeb3, confirmarEnvio, ErrorTransaccion, ErrorConfirmacionPendiente, traducir } from '../src/solana/tx';
 import { comprobarDevnet, DEVNET_GENESIS } from '../src/solana/seguridad';
 import { montoValido, skuValido, nombreValido, idValido } from '../src/solana/validaciones';
-import { instruccionEliminarCliente } from '../src/solana/acciones';
+import { instruccionEliminarCliente } from '../src/solana/instrucciones-eliminar';
 import idl from '../idl.json';
 import { validarIdl, prepararIdl, REFERENCIA_ID } from '../scripts/contrato-idl.mjs';
 
