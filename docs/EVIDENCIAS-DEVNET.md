@@ -19,6 +19,10 @@
 - [ ] Repositorio actualizado con pruebas y documentación final.
 - [ ] Formulario de certificación enviado y confirmación guardada.
 
+## Alta adicional para las pruebas de validación
+
+El 22/11/2026 se creó en Solana Playground **Cliente Validacion**, con **ID 2** en el registro `Viajes Demo Diego`. La terminal mostró `CLIENTE CREADO CORRECTAMENTE` y su firma; captura compartida en la conversación. Este cliente se utilizará para intentar registrar una venta de monto cero y comprobar la validación del contrato Rust (`MontoInvalido`, 6002). La prueba de rechazo aún está pendiente.
+
 ## Pruebas funcionales
 
 Usar datos ficticios, sin nombres ni información real de clientes.
