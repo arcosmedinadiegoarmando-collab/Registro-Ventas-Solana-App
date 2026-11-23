@@ -179,6 +179,14 @@ Para tu primera prueba, crea un negocio, agrega un cliente, registra una venta y
 | El RPC responde con un límite de uso | Espera y vuelve a intentar, o configura otro endpoint de Devnet en `.env.local` siguiendo `.env.example`. |
 | Cambiaste el IDL y falla la comprobación | Ejecuta `npm run cliente` y reinicia el servidor. |
 
+## Evidencias de la certificación Advanced
+
+Las pruebas de este proyecto se realizaron en Solana **Devnet** el 22 de noviembre de 2026. El programa Anchor está desplegado bajo el [Program ID H5MRzA9kNFVDL7Fwdmaf5iHyXauhZBYgTqisHufYWuTe](https://explorer.solana.com/address/H5MRzA9kNFVDL7Fwdmaf5iHyXauhZBYgTqisHufYWuTe?cluster=devnet).
+
+Consulta la [bitácora de resultados y validaciones](./docs/EVIDENCIAS-DEVNET.md) y la [carpeta preparada para las 13 capturas](./evidencias/README.md). Las pruebas incluyen alta de negocio y clientes, registro y corrección de venta, devolución, baja de cliente, rechazo de monto cero (6002) y rechazo de autoridad ajena (6000). También se comprobó que el frontend consulta el registro real y la venta de 150 unidades desde Devnet.
+
+**Nota:** las capturas PNG se incorporan por separado en `evidencias/`. Las instrucciones y nombres esperados están en [el índice de evidencias](./evidencias/README.md). Hasta que aparezcan los PNG en esa carpeta, no debe darse por hecho que ya están publicados en GitHub. Las escrituras se verificaron desde Solana Playground porque Phantom bloqueó el origen temporal del Codespace.
+
 ## Recursos y comunidad
 
 - [GitBook de Solana Engineering Track: Advanced](https://waylearn.gitbook.io/solana-engineering-track-advanced).
