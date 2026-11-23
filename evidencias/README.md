@@ -1,33 +1,33 @@
-# Evidencias del proyecto — Solana Advanced
+# Evidencias de pruebas en Solana Devnet
 
-Capturas tomadas durante las pruebas del 22 de noviembre de 2026 en Solana Playground y GitHub Codespaces (Devnet).
+Para el proyecto de certificación Advanced tomé como base el ejercicio de registro de ventas de WayLearn. Lo adapté para trabajar con mi programa en Devnet e incorporé una validación en Rust que impide crear ventas con importe cero o cambiar una venta existente a cero.
 
-## Capturas a incorporar
+El **22 de noviembre de 2026** probé el registro de un negocio, el alta de clientes, ventas, correcciones de importe, devoluciones y bajas. También comprobé que el programa rechazara acciones no permitidas. Las capturas corresponden a esas pruebas, no a datos de clientes reales.
 
-Descargar el paquete de evidencias de la conversación, descomprimirlo y **subir los PNG** a esta carpeta mediante GitHub (seleccionar rama `certificacion-advanced-22nov` → carpeta `evidencias` → **Add file / Upload files**).
+## Capturas
 
-| Archivo | Comprobación |
-|---|---|
-| `01_registro_creado.png` | Alta del negocio |
-| `02_cliente_1_creado.png` | Alta del cliente 1 |
-| `03_venta_VJ001_150.png` | Venta de 150 |
-| `04_cambio_VJ001_200.png` | Corrección del importe |
-| `05_baja_rechazada_con_venta.png` | Baja con venta activa rechazada (6003) |
-| `06_devolucion_confirmada.png` | Devolución y cierre de venta |
-| `07_baja_cliente_confirmada.png` | Cuenta cliente cerrada |
-| `08_cliente_2_creado.png` | Alta del cliente 2 |
-| `09_venta_cero_rechazada.png` | `MontoInvalido` (6002) al crear |
-| `10_venta_valida_VAL01.png` | Venta válida para segundo test |
-| `11_cambio_cero_rechazado.png` | `MontoInvalido` (6002) al modificar |
-| `12_no_owner_rechazado.png` | `NoOwner` (6000) |
-| `13_frontend_consulta_devnet.png` | Frontend lee el registro real, cliente #2 y venta de 150 unidades en Devnet |
+| Archivo | Qué comprobé |
+| --- | --- |
+| [01_registro_creado.png](./01_registro_creado.png) | Creación del negocio Viajes Demo Diego |
+| [02_cliente_1_creado.png](./02_cliente_1_creado.png) | Alta del primer cliente |
+| [03_venta_VJ001_150.png](./03_venta_VJ001_150.png) | Registro de una venta por 150 |
+| [04_cambio_VJ001_200.png](./04_cambio_VJ001_200.png) | Corrección del importe de 150 a 200 |
+| [05_baja_rechazada_con_venta.png](./05_baja_rechazada_con_venta.png) | Rechazo de baja con una venta activa (6003) |
+| [06_devolucion_confirmada.png](./06_devolucion_confirmada.png) | Devolución y cierre de la cuenta de la venta |
+| [07_baja_cliente_confirmada.png](./07_baja_cliente_confirmada.png) | Baja del cliente después de la devolución |
+| [08_cliente_2_creado.png](./08_cliente_2_creado.png) | Segundo cliente para las pruebas de validación |
+| [09_venta_cero_rechazada.png](./09_venta_cero_rechazada.png) | Rechazo de venta por importe cero (6002) |
+| [10_venta_valida_VAL01.png](./10_venta_valida_VAL01.png) | Venta válida para comprobar modificaciones |
+| [11_cambio_cero_rechazado.png](./11_cambio_cero_rechazado.png) | Rechazo del cambio de importe a cero (6002) |
+| [12_no_owner_rechazado.png](./12_no_owner_rechazado.png) | Rechazo de una wallet sin autorización (6000) |
+| [13_frontend_consulta_devnet.png](./13_frontend_consulta_devnet.png) | Lectura en la aplicación de los datos registrados en Devnet |
 
-El paquete de evidencias de la conversación incluye también la captura complementaria del frontend indicada como número 13.
+## Qué quedó funcionando
 
-## Estado
+En Solana Playground pude ejecutar las operaciones de escritura y comprobar sus resultados. En la aplicación web consulté el negocio **Viajes Demo Diego**, el cliente **Cliente Validacion** (ID 2) y su venta **VAL01** por 150 unidades.
 
-La tabla enumera los archivos esperados; **este README no indica que los PNG ya hayan sido subidos**. Completar los archivos antes de afirmar que las imágenes están en GitHub.
+La firma de transacciones desde la URL temporal de Codespaces quedó sin verificar: Phantom bloqueó esa solicitud. No desactivé la advertencia. Por eso las operaciones de escritura que documenté se ejecutaron desde Playground.
 
-No subir claves de wallet, frases de recuperación, saldos de wallets reales ni datos reales de clientes. Las cuentas y transacciones de estas capturas son de Devnet.
+El código utilizado está en [programa/src/lib.rs](../programa/src/lib.rs), y los resultados de cada prueba están explicados en [docs/EVIDENCIAS-DEVNET.md](../docs/EVIDENCIAS-DEVNET.md). El programa desplegado puede consultarse en [Solana Explorer](https://explorer.solana.com/address/H5MRzA9kNFVDL7Fwdmaf5iHyXauhZBYgTqisHufYWuTe?cluster=devnet).
 
-Consulta la [bitácora de pruebas](../docs/EVIDENCIAS-DEVNET.md) para el resultado, las firmas y el alcance de cada comprobación.
+*Las imágenes enlazadas en la tabla se mostrarán una vez que los archivos PNG estén cargados en esta carpeta.*
