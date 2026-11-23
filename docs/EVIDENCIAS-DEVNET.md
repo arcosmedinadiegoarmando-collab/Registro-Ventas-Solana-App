@@ -15,11 +15,12 @@
 - [x] `npm run verificar` aprobado en Codespaces después de importar el IDL (captura del 22/11/2026).
 - [x] Aplicación abierta en Codespaces, puerto 5173 (captura del 22/11/2026).
 - [x] Wallet Phantom conectada a la aplicación Devnet; **Phantom bloqueó la solicitud de firma del dominio temporal**, por lo que las pruebas de escritura se realizaron con wallet de Playground.
-- [x] Pruebas reales de negocio, validación de montos y rechazo de autoridad comprobadas en Playground (capturas del 22/11/2026). Pendiente subir capturas y enlazar firmas exactas en Explorer.
+- [x] Pruebas reales de negocio, validación de montos y rechazo de autoridad comprobadas en Playground (22/11/2026). Las 13 capturas están disponibles en `evidencias/`. Falta integrar enlaces individuales de firmas en Explorer.
 - [x] Cliente Codama regenerado, IDL, configuración y código subidos a GitHub en la rama `certificacion-advanced-22nov`.
 - [x] Lectura del registro real comprobada en el frontend: negocio `Viajes Demo Diego`, cliente #2 y venta `VAL01` por 150 unidades.
-- [ ] Subir las capturas y completar enlaces de transacciones en Explorer en el propio repositorio.
-- [ ] Formulario de certificación enviado y confirmación guardada.
+- [x] Subir las 13 capturas PNG a `evidencias/` en la rama `main`.
+- [ ] Completar enlaces individuales de transacciones en Explorer; las pruebas negativas simuladas no requieren firmas de éxito.
+- [x] Formulario de certificación enviado; Airtable mostró el mensaje «¡Gracias por enviar tu proyecto!» en la captura compartida por el participante.
 
 ## Alta adicional para las pruebas de validación
 
@@ -67,7 +68,7 @@ Puedes crear una carpeta `evidencias/` en el repositorio para subir capturas sin
 - [Explorer Devnet](https://explorer.solana.com/?cluster=devnet)
 - [Formulario de entrega Advanced](https://airtable.com/appqcPkgPHDB6fyz7/pagtEQg4DjDOKDHIL/form)
 
-**Estado:** las pruebas de negocio y seguridad indicadas como aprobadas se ejecutaron durante la sesión y aparecen en capturas compartidas en el chat. Queda pendiente subir las imágenes al repositorio y completar los enlaces de Explorer; una captura del frontend confirma la consulta de datos de Devnet. Las operaciones rechazadas durante simulación no producen necesariamente una firma de transacción exitosa.
+**Estado:** las pruebas de negocio y seguridad indicadas como aprobadas se ejecutaron durante la sesión. Las 13 imágenes se encuentran en [`evidencias/`](../evidencias/README.md). Queda pendiente completar enlaces individuales de las transacciones exitosas en Explorer. Las operaciones rechazadas durante simulación no producen necesariamente una firma de transacción exitosa.
 
 ## Nota de la primera prueba real
 
