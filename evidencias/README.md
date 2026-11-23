@@ -30,4 +30,18 @@ La firma de transacciones desde la URL temporal de Codespaces quedó sin verific
 
 El código utilizado está en [programa/src/lib.rs](../programa/src/lib.rs), y los resultados de cada prueba están explicados en [docs/EVIDENCIAS-DEVNET.md](../docs/EVIDENCIAS-DEVNET.md). El programa desplegado puede consultarse en [Solana Explorer](https://explorer.solana.com/address/H5MRzA9kNFVDL7Fwdmaf5iHyXauhZBYgTqisHufYWuTe?cluster=devnet).
 
-*Las imágenes enlazadas en la tabla se mostrarán una vez que los archivos PNG estén cargados en esta carpeta.*
+## Tres pruebas que considero más relevantes
+
+**Validación del contrato al registrar ventas:** intento de venta por importe cero, rechazado con `MontoInvalido` (6002).
+
+![Rechazo de venta por importe cero](./09_venta_cero_rechazada.png)
+
+**Control de permisos:** el programa rechazó una operación enviada por una wallet distinta a la propietaria (`NoOwner`, 6000).
+
+![Rechazo de una wallet no autorizada](./12_no_owner_rechazado.png)
+
+**Consulta desde la aplicación:** el frontend mostró el negocio, el cliente y la venta registrados en Devnet.
+
+![Aplicación consultando un negocio y sus ventas en Devnet](./13_frontend_consulta_devnet.png)
+
+Las 13 capturas están cargadas en esta carpeta y pueden abrirse desde la tabla anterior.
