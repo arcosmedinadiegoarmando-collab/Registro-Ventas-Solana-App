@@ -181,9 +181,9 @@ Para tu primera prueba, crea un negocio, agrega un cliente, registra una venta y
 
 Las pruebas de este proyecto se realizaron en Solana **Devnet** el 22 de noviembre de 2026. El programa Anchor está desplegado bajo el [Program ID H5MRzA9kNFVDL7Fwdmaf5iHyXauhZBYgTqisHufYWuTe](https://explorer.solana.com/address/H5MRzA9kNFVDL7Fwdmaf5iHyXauhZBYgTqisHufYWuTe?cluster=devnet).
 
-Consulta la [bitácora de resultados y validaciones](./docs/EVIDENCIAS-DEVNET.md) y la [carpeta preparada para las 13 capturas](./evidencias/README.md). Las pruebas incluyen alta de negocio y clientes, registro y corrección de venta, devolución, baja de cliente, rechazo de monto cero (6002) y rechazo de autoridad ajena (6000). También se comprobó que el frontend consulta el registro real y la venta de 150 unidades desde Devnet.
+Consulta la [bitácora de resultados y validaciones](./docs/EVIDENCIAS-DEVNET.md) y las [13 capturas de las pruebas](./evidencias/README.md). Las pruebas incluyen alta de negocio y clientes, registro y corrección de venta, devolución, baja de cliente, rechazo de monto cero (6002) y rechazo de autoridad ajena (6000). También se comprobó que el frontend consulta el registro real y la venta de 150 unidades desde Devnet.
 
-**Nota:** las capturas PNG se incorporan por separado en `evidencias/`. Las instrucciones y nombres esperados están en [el índice de evidencias](./evidencias/README.md). Hasta que aparezcan los PNG en esa carpeta, no debe darse por hecho que ya están publicados en GitHub. Las escrituras se verificaron desde Solana Playground porque Phantom bloqueó el origen temporal del Codespace.
+**Nota:** las 13 capturas PNG están disponibles en [`evidencias/`](./evidencias/README.md). Las escrituras se verificaron desde Solana Playground porque Phantom bloqueó las solicitudes de firma desde el dominio temporal de Codespaces.
 
 ## Recursos y comunidad
 
