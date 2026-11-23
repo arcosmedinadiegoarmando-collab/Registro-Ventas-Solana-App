@@ -1,15 +1,13 @@
-# Registro de Ventas · App
+# Registro de Ventas Solana — Viajes Demo Diego
 
-> **Solana Engineering Track: Advanced — Proyecto final de Diego Arcos**  
-> **Ruta:** proyecto guiado de WayLearn, ampliado con una mejora funcional implementada en Rust.  
-> **Programa Devnet:** `H5MRzA9kNFVDL7Fwdmaf5iHyXauhZBYgTqisHufYWuTe`  
-> [Ver programa en Solana Explorer](https://explorer.solana.com/address/H5MRzA9kNFVDL7Fwdmaf5iHyXauhZBYgTqisHufYWuTe?cluster=devnet)
->
-> **Aporte propio comprobado:** rechazo on-chain de importes iguales a cero tanto al crear ventas como al modificar el importe (`MontoInvalido`, error 6002). La baja segura del cliente es parte de la base del día 5; se documentó y probó junto con los demás flujos.
->
-> **Evidencia:** [Bitácora de pruebas en Devnet](./docs/EVIDENCIAS-DEVNET.md) · [Guía de implementación, reproducción y entrega](./docs/CERTIFICACION-ADVANCED-DIEGO.md).
->
-> **Nota de ejecución:** el frontend pasó `npm run verificar` en Codespaces con el IDL importado; las transacciones reales y los rechazos de autoridad/monto se comprobaron en Solana Playground. Phantom bloqueó las solicitudes de firma del dominio temporal `*.app.github.dev`; las operaciones de escritura no se presentan como verificadas desde ese dominio. No se debe desactivar la protección de la wallet.
+Este es mi proyecto final del **Solana Engineering Track: Advanced**. Partí del ejercicio de registro de ventas de WayLearn y lo adapté para trabajar con un programa propio desplegado en **Solana Devnet**.
+
+La aplicación permite consultar un negocio, dar de alta clientes, registrar ventas, corregir importes y realizar devoluciones. Para la certificación añadí al contrato Rust una validación que **rechaza los importes iguales a cero**, tanto al crear una venta como al modificarla. También probé los permisos del propietario y la baja de clientes con y sin ventas activas.
+
+Hice las pruebas el **22 de noviembre de 2026**. Las operaciones de escritura funcionaron desde Solana Playground y comprobé que el frontend consultara el negocio y sus ventas reales en Devnet. La firma desde Phantom en la URL temporal de Codespaces no quedó habilitada porque la extensión bloqueó esa solicitud; no la presento como una función verificada.
+
+**Programa desplegado:** [H5MRzA9kNFVDL7Fwdmaf5iHyXauhZBYgTqisHufYWuTe](https://explorer.solana.com/address/H5MRzA9kNFVDL7Fwdmaf5iHyXauhZBYgTqisHufYWuTe?cluster=devnet)  
+**Pruebas:** [Resultados en Devnet](./docs/EVIDENCIAS-DEVNET.md) · [Capturas](./evidencias/README.md) · [Guía para reproducir el proyecto](./docs/CERTIFICACION-ADVANCED-DIEGO.md)
 
 ![Registro de Ventas · App — Solana, TypeScript y React](./images/banner-app.png)
 
